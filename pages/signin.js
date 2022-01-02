@@ -31,20 +31,20 @@ const signin = () => {
     return (
         <Box minH="100vh" py="12" px={{base:"4",lg:"8"}} bg="#1a202c">
             <Box maxW="md" mx="auto">
-                <Heading textAlign="center" m="6" color="#79018C">To-Do List</Heading>
+                <Heading textAlign="center" m="6" color="#F2789F">To-Do List</Heading>
                 {error && (
                     <Alert>
                         <AlertIcon/>
                         <Text textAlign="center">{error}</Text>
                     </Alert>
                 )}
-                <Box py="8" px={{base:"4",md:"10"}} shadow="base" rounded={{sm:"lg"}} bg="#9A0680">
-                    {isSubmitted ? (<p>Please check {email} for log in link</p>):(
+                <Box py="8" px={{base:"4",md:"10"}} shadow="base" rounded={{sm:"lg"}} bg="#7CD1B8">
+                    {isSubmitted ? (<p color="black">Please check {email} for log in link & close this</p>):(
                             <chakra.form onSubmit={submitHandler}>
                                 <Stack spacing="6">
                                     <FormControl id="email">
                                         <FormLabel color={"black"}>Email Address</FormLabel>
-                                        <Input name="email" type="email" autoComplete="false" required value={email} onChange={changeHandler} borderColor="#160040" border="2px"/>
+                                        <Input name="email" type="email" autoComplete="false" required value={email} onChange={changeHandler} borderColor="#160040" border="2px" color="black"/>
                                     </FormControl>
                                     <Button type="submit" colorScheme="orange" size="lg" fontSize="md" isLoading={isLoading}>Sign In</Button>
                                 </Stack>

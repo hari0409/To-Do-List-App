@@ -101,17 +101,17 @@ const Home = () => {
     }
   }, [user]);
   return (
-    <div>
+    <div >
       <Head>
         <title>To-Do List</title>
         <meta name="description" content="Personal To-Do App"
         />
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="/logo.jpg" />
       </Head>
-      <main>
+      <main >
           <Navbar onOpen={onOpen} />
           <ManageTodo isOpen={isOpen} onClose={onClose} initialRef={initialRef}todo={todo} setTodo={setTodo}/>
-          <Heading cursor={"pointer"} m="10" spacing="4" size="lg">{userName}'s List</Heading>
+          <Heading cursor={"pointer"} m="10" spacing="4" size="lg">{userName} List</Heading>
         <HStack m="10" spacing="4" justify="end" cursor={"pointer"}>
             <Box>
               <Tag bg="green.500" borderRadius="3xl" size="sm" mt="1" />{" "}Complete
@@ -119,7 +119,7 @@ const Home = () => {
             <Box>
               <Tag bg="yellow.400" borderRadius="3xl" size="sm" mt="1" />{" "}Incomplete
             </Box>
-          </HStack>
+        </HStack>
         <SimpleGrid columns={{ base: 2, md: 3, lg: 4 }} gap={{ base: "4", md: "6", lg: "8" }} m="10">
           {todos.map((todo, index) => (
             <SingleTodo todo={todo}key={index}openHandler={openHandler}deleteHandler={deleteHandler} isDeleteLoading={isDeleteLoading}/>

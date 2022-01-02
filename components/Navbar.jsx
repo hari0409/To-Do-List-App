@@ -1,9 +1,10 @@
 import React,{useState} from 'react'
-import { Box, Button, ButtonGroup, Flex, Heading,Text } from "@chakra-ui/react";
+import { Box, Button, ButtonGroup, Flex, Heading,HStack } from "@chakra-ui/react";
 import NavLink from "next/link";
 import { useRouter } from 'next/router'
 import {supabaseClient} from "../lib/client"
-
+import {MdOutlineDoneAll} from "react-icons/md";
+import Themes from './Themes';
 const Navbar = ({onOpen}) => {
     const router=useRouter();
     const [isLogoutLoading, setIsLogoutLoading] = useState(false);
@@ -27,7 +28,16 @@ const Navbar = ({onOpen}) => {
             <Box maxW="6xl" mx="auto">
                 <Flex as="nav" aria-label="Site Navigation" align="center" justify="space-between">
                     <NavLink href="/">
-                        <Heading m="4" cursor="pointer">To-Do List</Heading>
+                        <HStack m="10" spacing="4" justify="end" cursor={"pointer"}>
+                            <Box>   
+                                <Heading>
+                                <MdOutlineDoneAll color='#FFC900' size="1.25em"/>
+                                </Heading>
+                            </Box>
+                            <Box>
+                                <Heading m="4" cursor="pointer" >To-Do List </Heading>
+                            </Box>
+                        </HStack>
                     </NavLink>
                     <Box>
                         <ButtonGroup spacing="4" ml="6">
@@ -43,6 +53,7 @@ const Navbar = ({onOpen}) => {
                             <Button colorScheme="green" onClick={onOpen}>Add To-Do</Button>
                             )}
                             <Button colorScheme="yellow" onClick={logoutHandler} isLoading={isLogoutLoading}>Logout</Button>
+                            <Themes/>
                         </ButtonGroup>
                     </Box>
                 </Flex>

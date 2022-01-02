@@ -1,7 +1,7 @@
-import {ChakraProvider} from "@chakra-ui/react"
+import {ChakraProvider, extendTheme} from "@chakra-ui/react"
 import customTheme from "../lib/theme"
 import {useRouter} from "next/router"
-import {useEffect} from "react"
+import {useEffect, useState} from "react"
 import {supabaseClient} from "../lib/client"
 
 function MyApp({ Component, pageProps }) {
@@ -49,10 +49,9 @@ function MyApp({ Component, pageProps }) {
       body: JSON.stringify({ event, session }),
     });
   };
-  
   return (
-    <ChakraProvider theme={customTheme}>
-      <Component {...pageProps} />
+    <ChakraProvider theme={customTheme} >
+      <Component {...pageProps}/>
     </ChakraProvider>
   )   
 }
